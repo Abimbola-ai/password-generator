@@ -92,7 +92,13 @@ var upperCasedCharacters = [
 function getPasswordLength() {
   while (true) {
     let lengthPassword = prompt('Please enter the length of your password')
-    if (lengthPassword >= 8 && lengthPassword <= 128) {
+    if (lengthPassword === null) {
+      return null
+    }
+    lengthPassword = parseInt(lengthPassword)
+    if (isNaN(lengthPassword)) {
+      alert('Please enter a valid number')
+    } else if (lengthPassword >= 8 && lengthPassword <= 128) {
       // If the password length is between 8 and 128 (inclusive), return it
       return lengthPassword
     } else {
@@ -120,10 +126,24 @@ function getNumericOptions() {
 
 function getPasswordOptions() {
   const passwordLength = getPasswordLength()
+  if (passwordLength === null) {
+    // User canceled
+    return null
+  }
   const checkLowercase = getLowercaseOptions()
   const checkUppercase = getUppercaseOptions()
   const checkNumbers = getNumericOptions()
   const checkSpecialChar = getSpecialOptions()
+
+  if (
+    !checkLowercase &&
+    !checkUppercase &&
+    !checkNumbers &&
+    !checkSpecialChar
+  ) {
+    alert('Please select at least one character type for your password.')
+    return null
+  }
 
   return {
     passwordLength: passwordLength,
@@ -142,6 +162,11 @@ function getRandom(arr) {
 // Function to generate password with user input
 function generatePassword() {
   const passwordOptions = getPasswordOptions()
+  if (passwordOptions === null) {
+    // User canceled or no options selected
+    return ''
+  }
+
   let availableChar = []
 
   if (passwordOptions.checkLowercase) {
