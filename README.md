@@ -41,8 +41,8 @@ This is a solution to a password generator assignment assignment from SkillHat. 
 
 ### Links
 
-- Solution URL: https://github.com/Abimbola-ai/password-generator
-- Live Site URL: https://abimbola-ai.github.io/
+- [Solution GitHub URL](https://github.com/Abimbola-ai/password-generator)
+- [Live Site URL](https://abimbola-ai.github.io/password-generator/ 'live site')
 
 ## My process
 
