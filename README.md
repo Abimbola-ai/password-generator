@@ -37,7 +37,7 @@ This is a solution to a password generator assignment assignment from SkillHat. 
 
 ### Screenshot
 
-![1707590135984](image/README/1707590135984.png)
+![1707596293648](image/README/1707596293648.png)
 
 ### Links
 
