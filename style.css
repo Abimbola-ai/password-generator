@@ -14,7 +14,7 @@ body,
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: #045b63;
 }
 
 .wrapper {
@@ -27,7 +27,7 @@ header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color: hsl(0, 0%, 100%);
 }
 
 .card {
@@ -43,7 +43,7 @@ header {
 }
 
 .card-header::after {
-  content: " ";
+  content: ' ';
   display: block;
   width: 100%;
   background: #e7e9eb;
@@ -59,7 +59,7 @@ header {
 }
 
 .card-footer::before {
-  content: " ";
+  content: ' ';
   display: block;
   width: 100%;
   background: #e7e9eb;
@@ -67,7 +67,7 @@ header {
 }
 
 .card-footer::after {
-  content: " ";
+  content: ' ';
   display: block;
   clear: both;
 }
