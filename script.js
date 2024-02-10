@@ -207,3 +207,37 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword)
+
+//Create functionality for the copy button
+function copyBtnClicked() {
+  let copyText = document.getElementById('password')
+  // Create a temporary textarea element
+  let textarea = document.createElement('textarea')
+  textarea.value = copyText.value
+
+  // Hide the textarea
+  textarea.style.position = 'fixed'
+  textarea.style.top = 0
+  textarea.style.left = 0
+  textarea.style.opacity = 0
+
+  // Append the textarea to the document body
+  document.body.appendChild(textarea)
+
+  // Select the content of the textarea
+  textarea.select()
+  try {
+    var success = document.execCommand('copy')
+    if (!success) {
+      throw new Error('Copying failed')
+    }
+    // Alert the user that the password has been copied
+    alert('Password copied to clipboard')
+  } catch (err) {
+    console.error('Unable to copy:', err)
+    alert('Oops, unable to copy the password. Please try again.')
+  } finally {
+    // Remove the textarea
+    document.body.removeChild(textarea)
+  }
+}
