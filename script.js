@@ -154,9 +154,14 @@ function getPasswordOptions() {
   }
 }
 
-// Function for getting a random element from an array
-function getRandom(arr) {
-  return arr[Math.floor(Math.random() * arr.length)]
+// Function to shuffle an array before selecting characters
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1))
+    let temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
+  }
 }
 
 // Function to generate password with user input
@@ -187,8 +192,9 @@ function generatePassword() {
   }
   //Randomize the user password options
   let password = ''
+  shuffleArray(availableChar)
   for (let i = 0; i < passwordOptions.passwordLength; i++) {
-    password += getRandom(availableChar)
+    password += availableChar[i % availableChar.length]
   }
 
   return password
